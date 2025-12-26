@@ -629,3 +629,782 @@ git log
 *Last Updated: December 2024*
 
 </div>
+
+# 🚀 Day 2: Git Installation & GitHub Setup
+
+<div align="center">
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Terminal](https://img.shields.io/badge/Terminal-4D4D4D?style=for-the-badge&logo=windows-terminal&logoColor=white)
+
+**Day 2 of GitHub Skill-Up Journey** ✅
+
+</div>
+
+<br>
+
+---
+
+<br>
+
+## 📚 What You'll Learn Today
+
+<br>
+
+| Topic | Description |
+|:------|:------------|
+| 💻 **Installing Git** | Set up Git on Windows, Linux, and macOS |
+| ⚙️ **Configuring Git** | Configure your identity and preferences |
+| 🌐 **GitHub Setup** | Create account and connect with local Git |
+| 🔐 **SSH Keys** | Generate and configure SSH keys for security |
+
+<br>
+
+---
+
+<br>
+
+## 💻 Installing Git
+
+<br>
+
+### 🪟 Windows Installation
+
+<br>
+
+#### Step 1: Download the Installer
+
+<br>
+
+Visit the official Git website:
+
+```
+https://git-scm.com/downloads/win
+```
+
+The download will start automatically for the latest version. Run the `.exe` file after download.
+
+<br>
+
+#### Step 2: Configure Installation
+
+<br>
+
+**Key Configuration Options:**
+
+- ✅ Choose your preferred text editor (VS Code recommended)
+- ✅ Add Git to system PATH (essential for command-line access)
+- ✅ Select OpenSSL for secure HTTPS communication
+- ✅ Choose line ending conversion (Windows-style recommended)
+
+<br>
+
+#### Step 3: Verify Installation
+
+<br>
+
+Open Git Bash or Command Prompt:
+
+```bash
+git --version
+```
+
+**Expected Output:** `git version 2.x.x`
+
+<br>
+
+---
+
+<br>
+
+### 🐧 Linux Installation
+
+<br>
+
+#### For Debian/Ubuntu
+
+<br>
+
+```bash
+# Update package list
+sudo apt update
+
+# Install Git
+sudo apt install git
+```
+
+<br>
+
+#### For Fedora
+
+<br>
+
+```bash
+sudo dnf install git
+```
+
+<br>
+
+#### For Arch Linux
+
+<br>
+
+```bash
+sudo pacman -S git
+```
+
+<br>
+
+#### Verify Installation
+
+<br>
+
+```bash
+git --version
+```
+
+<br>
+
+---
+
+<br>
+
+### 🍎 macOS Installation
+
+<br>
+
+#### Step 1: Install Homebrew (if not installed)
+
+<br>
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+<br>
+
+#### Step 2: Install Git via Homebrew
+
+<br>
+
+```bash
+brew install git
+```
+
+<br>
+
+#### Step 3: Verify Installation
+
+<br>
+
+```bash
+git --version
+```
+
+<br>
+
+---
+
+<br>
+
+## ⚙️ Configuring Git
+
+<br>
+
+> **💡 Why Configure?** Git needs to know who you are so it can properly attribute your commits. This information appears in your commit history and is visible to collaborators.
+
+<br>
+
+### Essential Configuration
+
+<br>
+
+#### 1. Set Your Name
+
+<br>
+
+```bash
+git config --global user.name "Abhishek Sharma"
+```
+
+<br>
+
+#### 2. Set Your Email
+
+<br>
+
+```bash
+git config --global user.email "Abhi_sharma99@outlook.com"
+```
+
+<br>
+
+> **⚠️ Important:** Use the same email address you'll use for GitHub to ensure proper commit attribution.
+
+<br>
+
+#### 3. Set Default Branch Name
+
+<br>
+
+```bash
+git config --global init.defaultBranch main
+```
+
+<br>
+
+#### 4. Verify Configuration
+
+<br>
+
+```bash
+# View all configuration
+git config --list
+
+# Check specific values
+git config user.name
+git config user.email
+```
+
+<br>
+
+---
+
+<br>
+
+### Optional But Useful Settings
+
+<br>
+
+| Command | Purpose |
+|:--------|:--------|
+| `git config --global core.editor "code --wait"` | Set VS Code as default editor |
+| `git config --global color.ui auto` | Enable colored terminal output |
+| `git config --global merge.conflictstyle diff3` | Better merge conflict display |
+| `git config --global pull.rebase false` | Set default pull behavior |
+
+<br>
+
+**Example: Setting VS Code as Editor**
+
+```bash
+git config --global core.editor "code --wait"
+```
+
+<br>
+
+---
+
+<br>
+
+## 🌐 Setting Up GitHub
+
+<br>
+
+### Step-by-Step GitHub Setup
+
+<br>
+
+```
+Create Account → Configure Git → Setup SSH → Start Coding!
+```
+
+<br>
+
+### Step 1: Create a GitHub Account
+
+<br>
+
+Visit **[github.com](https://github.com)** and sign up.
+
+<br>
+
+**Best Practices:**
+
+- ✅ Choose a professional username
+- ✅ Use a valid email address
+- ✅ Create a strong password
+- ✅ Verify your email address
+- ✅ Complete your profile (add bio, profile picture)
+
+<br>
+
+### Step 2: Configure Git with GitHub
+
+<br>
+
+Ensure your Git configuration matches your GitHub account:
+
+```bash
+git config --global user.name "abs-dharma"
+git config --global user.email "your-github-email@example.com"
+```
+
+<br>
+
+---
+
+<br>
+
+## 🔐 Setting Up SSH Keys
+
+<br>
+
+> **💡 Why SSH Keys?** SSH keys provide secure authentication with GitHub without entering your password every time. **Highly recommended for daily use!**
+
+<br>
+
+### Step 1: Generate SSH Key
+
+<br>
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "Abhi_sharma99@outlook.com"
+```
+
+<br>
+
+**When prompted:**
+- Press Enter to accept default file location (`~/.ssh/id_rsa`)
+- Optionally enter a passphrase for extra security (recommended)
+
+<br>
+
+### Step 2: Start SSH Agent & Add Key
+
+<br>
+
+```bash
+# Start the SSH agent
+eval "$(ssh-agent -s)"
+
+# Add your SSH key
+ssh-add ~/.ssh/id_rsa
+```
+
+<br>
+
+### Step 3: Copy Your Public Key
+
+<br>
+
+**For Linux/Mac:**
+
+```bash
+cat ~/.ssh/id_rsa.pub
+```
+
+<br>
+
+**For Windows (Git Bash):**
+
+```bash
+clip < ~/.ssh/id_rsa.pub
+```
+
+<br>
+
+**For Windows (PowerShell):**
+
+```powershell
+Get-Content ~/.ssh/id_rsa.pub | Set-Clipboard
+```
+
+<br>
+
+### Step 4: Add SSH Key to GitHub
+
+<br>
+
+1. Go to GitHub → **Settings** → **SSH and GPG keys**
+2. Click **"New SSH key"**
+3. Give it a descriptive title (e.g., "My Laptop" or "Work Computer")
+4. Paste your public key in the "Key" field
+5. Click **"Add SSH key"**
+
+<br>
+
+### Step 5: Test Your SSH Connection
+
+<br>
+
+```bash
+ssh -T git@github.com
+```
+
+<br>
+
+**Expected Success Message:**
+
+```
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+<br>
+
+> ✅ If you see this message, your SSH setup is complete!
+
+<br>
+
+---
+
+<br>
+
+## 🎯 Git Core Concepts (Review from Day 1)
+
+<br>
+
+### The Three States
+
+<br>
+
+| State | Description | Location |
+|:------|:------------|:---------|
+| **Working Directory** | Files you're currently editing | Your project folder |
+| **Staging Area** | Changes marked for next commit | `.git/index` |
+| **Repository** | Committed snapshots | `.git/` directory |
+
+<br>
+
+### Workflow Overview
+
+<br>
+
+```
+Working Directory → (git add) → Staging Area → (git commit) → Repository
+```
+
+<br>
+
+---
+
+<br>
+
+## 📋 Essential Git Commands (Preview)
+
+<br>
+
+| Command | Purpose |
+|:--------|:--------|
+| `git init` | Initialize a new Git repository |
+| `git status` | Check status of files |
+| `git add <file>` | Stage files for commit |
+| `git commit -m "message"` | Save staged changes |
+| `git log` | View commit history |
+| `git branch` | List/create branches |
+| `git checkout <branch>` | Switch branches |
+| `git merge <branch>` | Merge branches |
+| `git push` | Upload changes to remote |
+| `git pull` | Download changes from remote |
+
+<br>
+
+---
+
+<br>
+
+## ✅ Verification Checklist
+
+<br>
+
+### Confirm Your Setup
+
+<br>
+
+| Task | Verification Command | Expected Result |
+|:-----|:---------------------|:----------------|
+| **Git Installed** | `git --version` | Version number displayed |
+| **Name Configured** | `git config user.name` | Your name |
+| **Email Configured** | `git config user.email` | Your email |
+| **Default Branch** | `git config init.defaultBranch` | `main` |
+| **SSH Setup** | `ssh -T git@github.com` | Authentication success |
+
+<br>
+
+### Run Complete Verification
+
+<br>
+
+```bash
+# Check Git installation
+git --version
+
+# Check configuration
+git config --list
+
+# Test GitHub SSH connection
+ssh -T git@github.com
+```
+
+<br>
+
+---
+
+<br>
+
+## 🎨 Git Configuration Levels
+
+<br>
+
+Git has three configuration levels:
+
+<br>
+
+| Level | Scope | Command Flag | Location |
+|:------|:------|:-------------|:---------|
+| **System** | All users on machine | `--system` | `/etc/gitconfig` |
+| **Global** | Current user (you) | `--global` | `~/.gitconfig` |
+| **Local** | Specific repository | `--local` | `.git/config` |
+
+<br>
+
+**Priority:** Local > Global > System
+
+<br>
+
+---
+
+<br>
+
+## 🔧 Troubleshooting Common Issues
+
+<br>
+
+### Issue 1: Git Command Not Found
+
+<br>
+
+**Solution:**
+- Ensure Git is installed: `git --version`
+- Check if Git is in PATH (Windows: restart terminal)
+- Reinstall Git if necessary
+
+<br>
+
+### Issue 2: Permission Denied (SSH)
+
+<br>
+
+**Solution:**
+
+```bash
+# Check if SSH key is added
+ssh-add -l
+
+# If empty, add the key
+ssh-add ~/.ssh/id_rsa
+
+# Test connection
+ssh -T git@github.com
+```
+
+<br>
+
+### Issue 3: Wrong User Name in Commits
+
+<br>
+
+**Solution:**
+
+```bash
+# Update global configuration
+git config --global user.name "Correct Name"
+git config --global user.email "Abhi_sharma99@outlook.com"
+```
+
+<br>
+
+---
+
+<br>
+
+## 🌟 Git Hosting Platforms Comparison
+
+<br>
+
+| Platform | Best For | Key Features |
+|:---------|:---------|:-------------|
+| **GitHub** | Open source, portfolios | Largest community, GitHub Pages, Actions |
+| **GitLab** | DevOps, CI/CD | Built-in CI/CD, self-hosting option |
+| **Bitbucket** | Atlassian tools | Jira integration, private repos |
+
+<br>
+
+---
+
+<br>
+
+## 📝 Quick Reference Card
+
+<br>
+
+### Installation Commands
+
+<br>
+
+```bash
+# Windows (Git Bash)
+git --version
+
+# Ubuntu/Debian
+sudo apt update && sudo apt install git
+
+# macOS (Homebrew)
+brew install git
+
+# Fedora
+sudo dnf install git
+```
+
+<br>
+
+### Configuration Commands
+
+<br>
+
+```bash
+# Set identity
+git config --global user.name "Your Name"
+git config --global user.email "email@example.com"
+
+# Set default branch
+git config --global init.defaultBranch main
+
+# Set editor
+git config --global core.editor "code --wait"
+
+# View all settings
+git config --list
+```
+
+<br>
+
+### SSH Commands
+
+<br>
+
+```bash
+# Generate SSH key
+ssh-keygen -t rsa -b 4096 -C "email@example.com"
+
+# Start SSH agent
+eval "$(ssh-agent -s)"
+
+# Add SSH key
+ssh-add ~/.ssh/id_rsa
+
+# Copy public key (Linux/Mac)
+cat ~/.ssh/id_rsa.pub
+
+# Test GitHub connection
+ssh -T git@github.com
+```
+
+<br>
+
+---
+
+<br>
+
+## 🚀 What's Next?
+
+<br>
+
+<div align="center">
+
+### 🎉 Congratulations! Day 2 Complete! 🎉
+
+<br>
+
+**Your development environment is ready!**
+
+<br>
+
+</div>
+
+**Tomorrow's Focus - Day 3: Basic Git Commands**
+
+<br>
+
+- 📁 Creating your first repository with `git init`
+- 📝 Tracking files with `git add`
+- 💾 Saving snapshots with `git commit`
+- 🔍 Checking status with `git status`
+- 📜 Viewing history with `git log`
+- 🌿 Working with branches
+
+<br>
+
+---
+
+<br>
+
+## 📚 Additional Resources
+
+<br>
+
+### Official Documentation
+
+- [Git Official Docs](https://git-scm.com/doc)
+- [GitHub Docs](https://docs.github.com/)
+- [Git Cheat Sheet](https://education.github.com/git-cheat-sheet-education.pdf)
+
+<br>
+
+### Interactive Tutorials
+
+- [Git Immersion](https://gitimmersion.com/)
+- [Learn Git Branching](https://learngitbranching.js.org/)
+- [GitHub Skills](https://skills.github.com/)
+
+<br>
+
+### Video Tutorials
+
+- [Git & GitHub Crash Course](https://www.youtube.com/watch?v=RGOj5yH7evk)
+- [Git Tutorial for Beginners](https://www.youtube.com/watch?v=8JJ101D3knE)
+
+<br>
+
+---
+
+<br>
+
+## 💡 Pro Tips
+
+<br>
+
+1. **Always verify your Git configuration** before making your first commit
+2. **Use SSH over HTTPS** for better security and convenience
+3. **Set up a .gitignore file** early to avoid committing unnecessary files
+4. **Use meaningful commit messages** from the start
+5. **Practice Git commands daily** to build muscle memory
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+### 💪 Ready to Start Using Git?
+
+<br>
+
+[![Continue to Day 3](https://img.shields.io/badge/Continue-Day_3-brightgreen?style=for-the-badge)](link-to-day-3)
+
+<br>
+
+---
+
+<br>
+
+**Made with ❤️ for aspiring developers**
+
+<br>
+
+*Last Updated: December 2024*
+
+</div>
