@@ -1,384 +1,631 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day 1: Version Control Systems & Git</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+# 📚 Day 1 Summary: Version Control Systems & Git Fundamentals
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans', Helvetica, Arial, sans-serif;
-            background-color: #0d1117;
-            color: #c9d1d9;
-            line-height: 1.6;
-        }
+<div align="center">
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Version Control](https://img.shields.io/badge/Version_Control-000000?style=for-the-badge&logo=git&logoColor=white)
 
-        header {
-            background: linear-gradient(135deg, #1f6feb 0%, #0d419d 100%);
-            padding: 60px 20px;
-            text-align: center;
-            border-radius: 12px;
-            margin-bottom: 40px;
-            box-shadow: 0 8px 24px rgba(31, 111, 235, 0.2);
-        }
+**GitHub Skill-Up Journey - Day 1 Complete** ✅
 
-        h1 {
-            font-size: 3em;
-            color: #ffffff;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
+</div>
 
-        .subtitle {
-            font-size: 1.3em;
-            color: #e6edf3;
-            opacity: 0.9;
-        }
+<br>
 
-        .badge {
-            display: inline-block;
-            background: #238636;
-            color: white;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: 500;
-            margin-top: 20px;
-        }
+---
 
-        .content-section {
-            background: #161b22;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 30px;
-            margin-bottom: 30px;
-        }
+<br>
 
-        h2 {
-            color: #58a6ff;
-            font-size: 2em;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #21262d;
-        }
+## 🎯 What You Learned Today
 
-        h3 {
-            color: #7ee787;
-            font-size: 1.5em;
-            margin-top: 25px;
-            margin-bottom: 15px;
-        }
+<br>
 
-        p {
-            margin-bottom: 15px;
-            color: #c9d1d9;
-        }
+> **Core Concept:** Version Control Systems are time machines for code that track changes, enable collaboration, and provide safety nets for development teams.
 
-        .code-block {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 6px;
-            padding: 16px;
-            margin: 20px 0;
-            font-family: 'Courier New', monospace;
-            overflow-x: auto;
-        }
+<br>
 
-        .code-block code {
-            color: #79c0ff;
-            font-size: 0.95em;
-        }
+### 🔑 Key Takeaways
 
-        .workflow {
-            background: #21262d;
-            padding: 15px 20px;
-            border-left: 4px solid #58a6ff;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
+<br>
 
-        .workflow strong {
-            color: #58a6ff;
-        }
+✅ **Version Control is Essential** - Modern software development requires systematic tracking of code changes
 
-        .comparison-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
-        }
+✅ **Three Types Exist** - Local (single machine), Centralized (single server), and Distributed (multiple full copies)
 
-        .comparison-card {
-            background: #0d1117;
-            border: 1px solid #30363d;
-            border-radius: 8px;
-            padding: 20px;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
+✅ **Git Dominates** - Distributed architecture makes it the industry standard for 90%+ of projects
 
-        .comparison-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 4px 12px rgba(88, 166, 255, 0.15);
-            border-color: #58a6ff;
-        }
+✅ **Offline Capabilities** - Work anywhere, commit locally, sync when ready
 
-        .comparison-card h4 {
-            color: #f0883e;
-            font-size: 1.2em;
-            margin-bottom: 12px;
-        }
+✅ **No Single Point of Failure** - Every developer has a complete backup of the project
 
-        .pros-cons {
-            margin-top: 15px;
-        }
+<br>
 
-        .pros-cons h5 {
-            color: #7ee787;
-            font-size: 0.9em;
-            margin-bottom: 8px;
-            margin-top: 12px;
-        }
+---
 
-        .pros-cons.cons h5 {
-            color: #f85149;
-        }
+<br>
 
-        ul {
-            margin-left: 20px;
-            margin-bottom: 15px;
-        }
+## 🔄 The Three Types of Version Control
 
-        li {
-            margin-bottom: 8px;
-            color: #c9d1d9;
-        }
+<br>
 
-        .feature-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
+| Type | How It Works | Best For | Example |
+|:-----|:-------------|:---------|:--------|
+| **Local VCS** | Changes tracked on your computer only | Personal projects, learning | RCS |
+| **Centralized (CVCS)** | Single server stores everything | Small co-located teams | SVN, CVS |
+| **Distributed (DVCS)** | Every developer has full history | Large teams, open source | Git, Mercurial |
 
-        .feature-item {
-            background: #21262d;
-            padding: 15px;
-            border-radius: 6px;
-            border-left: 3px solid #7ee787;
-        }
+<br>
 
-        .feature-item strong {
-            color: #7ee787;
-            display: block;
-            margin-bottom: 5px;
-        }
+### 1️⃣ Local Version Control
 
-        .highlight-box {
-            background: linear-gradient(135deg, #1f6feb15 0%, #0d419d15 100%);
-            border: 1px solid #1f6feb;
-            border-radius: 8px;
-            padding: 20px;
-            margin: 25px 0;
-        }
+<br>
 
-        .highlight-box h3 {
-            color: #58a6ff;
-            margin-top: 0;
-        }
+```
+📁 Your Computer
+   └── 📦 Local Database (all versions)
+```
 
-        .vs-section {
-            background: #0d1117;
-            padding: 20px;
-            border-radius: 8px;
-            margin: 15px 0;
-            border: 1px solid #30363d;
-        }
+<br>
 
-        .vs-section h4 {
-            color: #f0883e;
-            margin-bottom: 10px;
-        }
+**Pros:**
+- Simple setup
+- No internet needed
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            margin-top: 40px;
-            border-top: 1px solid #21262d;
-        }
+<br>
 
-        .next-btn {
-            background: linear-gradient(135deg, #1f6feb 0%, #0d419d 100%);
-            color: white;
-            padding: 12px 32px;
-            border: none;
-            border-radius: 6px;
-            font-size: 1.1em;
-            cursor: pointer;
-            transition: transform 0.2s;
-            display: inline-block;
-            text-decoration: none;
-        }
+**Cons:**
+- No collaboration
+- Limited to one machine
 
-        .next-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(31, 111, 235, 0.4);
-        }
+<br>
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-            
-            .subtitle {
-                font-size: 1.1em;
-            }
-            
-            .comparison-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🚀 Day 1: Version Control Systems & Git</h1>
-            <p class="subtitle">Building Your Foundation in Modern Software Development</p>
-            <span class="badge">Skill Up for GitHub</span>
-        </header>
+### 2️⃣ Centralized Version Control (CVCS)
 
-        <div class="content-section">
-            <h2>📚 What is Version Control?</h2>
-            <p>Version control is like having a <strong>time machine for your code</strong>. It's a system that records changes to files over time, allowing you to:</p>
-            
-            <div class="feature-list">
-                <div class="feature-item">
-                    <strong>📝 Track Changes</strong>
-                    <p>Record every modification to your codebase</p>
-                </div>
-                <div class="feature-item">
-                    <strong>👥 Collaborate</strong>
-                    <p>Work with others without conflicts</p>
-                </div>
-                <div class="feature-item">
-                    <strong>⏮️ Revert</strong>
-                    <p>Go back to previous versions anytime</p>
-                </div>
-                <div class="feature-item">
-                    <strong>🔍 Understand</strong>
-                    <p>See who changed what and why</p>
-                </div>
-            </div>
+<br>
 
-            <p style="margin-top: 20px;">Think of it as creating save points in a video game—you can always go back if things go wrong!</p>
-        </div>
+```
+      ☁️ Central Server
+         ├── Developer 1
+         ├── Developer 2
+         └── Developer 3
+```
 
-        <div class="content-section">
-            <h2>🗂️ Types of Version Control Systems</h2>
-            
-            <div class="comparison-grid">
-                <div class="comparison-card">
-                    <h4>1. Local Version Control</h4>
-                    <p>Changes tracked only on your personal computer. Simple but limited to individual work.</p>
-                    <div class="pros-cons">
-                        <h5>✅ Pros:</h5>
-                        <ul>
-                            <li>Simple setup</li>
-                            <li>No internet needed</li>
-                        </ul>
-                    </div>
-                    <div class="pros-cons cons">
-                        <h5>❌ Cons:</h5>
-                        <ul>
-                            <li>No collaboration</li>
-                            <li>Limited to one machine</li>
-                        </ul>
-                    </div>
-                </div>
+<br>
 
-                <div class="comparison-card">
-                    <h4>2. Centralized (CVCS)</h4>
-                    <p>Single central server stores all files. Examples: SVN, CVS</p>
-                    <div class="workflow">
-                        <strong>Workflow:</strong> Update → Change → Commit to Server
-                    </div>
-                    <div class="pros-cons">
-                        <h5>✅ Pros:</h5>
-                        <ul>
-                            <li>Simple to understand</li>
-                            <li>Centralized control</li>
-                            <li>Real-time collaboration</li>
-                        </ul>
-                    </div>
-                    <div class="pros-cons cons">
-                        <h5>❌ Cons:</h5>
-                        <ul>
-                            <li>Single point of failure</li>
-                            <li>Requires internet</li>
-                        </ul>
-                    </div>
-                </div>
+**Workflow:** `Update → Make Changes → Commit to Server`
 
-                <div class="comparison-card">
-                    <h4>3. Distributed (DVCS)</h4>
-                    <p>Every developer has complete project history. Examples: Git, Mercurial</p>
-                    <div class="workflow">
-                        <strong>Workflow:</strong> Pull → Change → Commit → Push
-                    </div>
-                    <div class="pros-cons">
-                        <h5>✅ Pros:</h5>
-                        <ul>
-                            <li>Work offline</li>
-                            <li>No single point of failure</li>
-                            <li>Faster operations</li>
-                            <li>Powerful branching</li>
-                        </ul>
-                    </div>
-                    <div class="pros-cons cons">
-                        <h5>❌ Cons:</h5>
-                        <ul>
-                            <li>Steeper learning curve</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
+<br>
 
-        <div class="content-section">
-            <h2>⭐ Why Git Dominates</h2>
-            
-            <div class="highlight-box">
-                <h3>Git has become the industry standard for several compelling reasons:</h3>
-            </div>
+**Pros:**
+- Simple to understand
+- Centralized control
+- Real-time collaboration
 
-            <div class="feature-list">
-                <div class="feature-item">
-                    <strong>🌐 Distributed Architecture</strong>
-                    <p>Every developer has a full backup. Work offline and commit locally before pushing.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>⚡ Lightning-Fast Performance</strong>
-                    <p>Most operations happen locally, making commits, branches, and merges incredibly fast.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>🌿 Powerful Branching</strong>
-                    <p>Creating branches is cheap and easy. Experiment freely without affecting main code.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>👥 Strong Community</strong>
-                    <p>Massive ecosystem with GitHub, GitLab, and Bitbucket. Tons of tools and resources.</p>
-                </div>
-                <div class="feature-item">
-                    <strong>🔒 Security</strong>
-                    <p>Cryptographic hashing (SHA-1) ensures data integrity. Every commit is uniquely identified.</p>
+<br>
+
+**Cons:**
+- Single point of failure
+- Requires internet connection
+- Server downtime blocks work
+
+<br>
+
+### 3️⃣ Distributed Version Control (DVCS)
+
+<br>
+
+```
+☁️ Remote Repository
+   ↕️
+👤 Developer 1 (Full Copy)
+👤 Developer 2 (Full Copy)
+👤 Developer 3 (Full Copy)
+```
+
+<br>
+
+**Workflow:** `Pull → Make Changes → Commit Locally → Push`
+
+<br>
+
+**Pros:**
+- Work offline
+- No single point of failure
+- Faster operations
+- Powerful branching
+
+<br>
+
+**Cons:**
+- Steeper initial learning curve
+
+<br>
+
+---
+
+<br>
+
+## ⚡ Why Git Wins
+
+<br>
+
+<div align="center">
+
+### 🌟 Git has become the industry standard 🌟
+
+</div>
+
+<br>
+
+| Feature | Why It Matters |
+|:--------|:---------------|
+| 🌐 **Distributed Architecture** | Every developer has complete project history. Work offline, no central bottleneck. |
+| 🚀 **Lightning Speed** | Local operations are instantaneous. Commits, branches, merges in milliseconds. |
+| 🌿 **Easy Branching** | Create branches effortlessly. Experiment without fear, merge seamlessly. |
+| 👥 **Huge Community** | GitHub, GitLab, Bitbucket ecosystem. Millions of developers, endless resources. |
+| 🔒 **Secure by Design** | Cryptographic hashing (SHA-1) ensures data integrity. Every change is traceable. |
+| 🎨 **Flexible Workflows** | Supports Git Flow, GitHub Flow, trunk-based development, custom workflows. |
+
+<br>
+
+---
+
+<br>
+
+## 📖 Essential Git Vocabulary
+
+<br>
+
+### Core Concepts You Must Know
+
+<br>
+
+| Term | Definition | Example |
+|:-----|:-----------|:--------|
+| **Repository** | Complete project with all files and history | `my-awesome-project/` |
+| **Commit** | Snapshot of changes at specific time | `git commit -m "Add login feature"` |
+| **Branch** | Separate line of development | `feature/user-authentication` |
+| **Merge** | Combining changes from branches | `git merge feature-branch` |
+| **Push** | Upload local commits to remote | `git push origin main` |
+| **Pull** | Download changes from remote | `git pull origin main` |
+
+<br>
+
+---
+
+<br>
+
+## ⚔️ Git vs The Competition
+
+<br>
+
+### 🥊 Git vs SVN (Subversion)
+
+<br>
+
+**Winner: Git** ✅
+
+<br>
+
+| Aspect | Git | SVN |
+|:-------|:----|:----|
+| **Architecture** | Distributed | Centralized |
+| **Offline Work** | ✅ Full capabilities | ❌ Limited |
+| **Branching** | 🚀 Fast & easy | 🐌 Slow & complex |
+| **Performance** | ⚡ Excellent | 🔄 Good |
+| **Single Point of Failure** | ❌ No | ✅ Yes |
+
+<br>
+
+**Why Git Wins:**
+
+- Distributed beats centralized for flexibility and resilience
+- Better branching and merging capabilities
+- Superior performance, especially for large projects
+- No single point of failure
+
+<br>
+
+### 🥊 Git vs Mercurial
+
+<br>
+
+**Winner: Git** ✅
+
+<br>
+
+| Aspect | Git | Mercurial |
+|:-------|:----|:----------|
+| **Performance** | ⚡ Excellent | ⚡ Excellent |
+| **Learning Curve** | 📈 Steeper | 📉 Gentler |
+| **Community** | 🌍 Massive | 👥 Good |
+| **Ecosystem** | 🎯 GitHub/GitLab | 🔧 Limited |
+| **Features** | 🛠️ Powerful | ✨ Simple |
+
+<br>
+
+**Why Git Wins:**
+
+- Similar performance but larger ecosystem
+- More powerful features and flexibility
+- Massive community advantage (GitHub, GitLab, Bitbucket)
+- Industry standard adoption
+
+<br>
+
+### 🥊 Git vs Perforce
+
+<br>
+
+**Winner: Depends on Use Case** 🤝
+
+<br>
+
+| Aspect | Git | Perforce |
+|:-------|:----|:---------|
+| **Large Binary Files** | 🔄 Good (with LFS) | ⚡ Excellent |
+| **Very Large Codebases** | 🔄 Good | 🚀 Excellent |
+| **Cost** | 💰 Free | 💰💰 Commercial |
+| **Flexibility** | ✅ High | 🔧 Moderate |
+| **Best For** | Most projects | Gaming, embedded |
+
+<br>
+
+**When to Choose:**
+
+- **Git:** Free, open-source, flexible for 90% of projects
+- **Perforce:** Massive codebases (100GB+), large binary files, enterprise needs
+
+<br>
+
+---
+
+<br>
+
+## 🎓 Decision Guide: When to Choose What?
+
+<br>
+
+### ✅ Choose Git When:
+
+<br>
+
+- 🌐 Working with distributed teams across locations
+- 💻 Need offline work capabilities
+- 🌿 Require powerful branching and experimentation
+- 🔓 Building open-source projects
+- 🛠️ Want modern tooling and integrations
+- 🎨 Need flexibility in workflows
+- 💰 Budget is limited (Git is free!)
+
+<br>
+
+**Perfect For:**
+
+- Remote/distributed teams
+- Open source projects
+- Startups and agile teams
+- Learning and education
+- Most modern companies
+
+<br>
+
+### ✅ Choose SVN When:
+
+<br>
+
+- 🏢 Small team in single location
+- 🔒 Need simple centralized control
+- 📝 Don't require complex branching
+- 🔄 Legacy systems already using it
+- ✨ Team prefers simplicity over power
+
+<br>
+
+**Perfect For:**
+
+- Small co-located teams
+- Simple file versioning
+- Strict access control needed
+- Legacy system maintenance
+
+<br>
+
+### ✅ Choose Perforce When:
+
+<br>
+
+- 📦 Managing extremely large codebases (100GB+)
+- 🎮 Working with massive binary files
+- 🕹️ Gaming industry (assets, builds)
+- 🏢 Enterprise-level projects with specific needs
+- 💼 Budget allows commercial licensing
+
+<br>
+
+**Perfect For:**
+
+- Game development (Unity, Unreal)
+- CAD/Engineering projects
+- Media production
+- Large enterprises
+
+<br>
+
+---
+
+<br>
+
+## 💡 Real-World Impact
+
+<br>
+
+### 📊 Industry Statistics
+
+<br>
+
+| Metric | Value |
+|:-------|:------|
+| **Developers using Git** | 90%+ |
+| **GitHub Repositories** | 100M+ |
+| **Companies using Git** | Thousands worldwide |
+| **Collaboration** | 24/7 across all time zones |
+| **Largest Git Repo** | Linux Kernel (20M+ lines) |
+
+<br>
+
+### 🌟 Why This Matters
+
+<br>
+
+> Understanding version control fundamentals isn't just academic—it's the foundation of how modern software teams collaborate, ship features safely, and maintain code quality at scale.
+
+<br>
+
+**Git's Impact:**
+
+- 🌍 Enabled global open-source collaboration
+- 🚀 Powers companies like Google, Facebook, Microsoft
+- 📈 Accelerated software development velocity
+- 🤝 Made remote work seamless for developers
+- 🔒 Improved code security and traceability
+
+<br>
+
+---
+
+<br>
+
+## 🔥 Quick Reference: CVCS vs DVCS
+
+<br>
+
+### Centralized (CVCS) Workflow
+
+<br>
+
+```bash
+# Update from server
+svn update
+
+# Make changes to files
+# ...
+
+# Commit directly to central server
+svn commit -m "Add new feature"
+```
+
+<br>
+
+### Distributed (DVCS) Workflow
+
+<br>
+
+```bash
+# Get latest from remote
+git pull origin main
+
+# Create feature branch
+git checkout -b feature/new-feature
+
+# Make changes and commit locally
+git add .
+git commit -m "Add new feature"
+
+# Push to remote
+git push origin feature/new-feature
+```
+
+<br>
+
+---
+
+<br>
+
+## ✅ Day 1 Completion Checklist
+
+<br>
+
+### You Now Understand:
+
+<br>
+
+- [x] What version control systems are and why they're essential
+- [x] The three types of VCS: Local, Centralized, and Distributed
+- [x] How Git's distributed architecture provides key advantages
+- [x] Why Git has become the industry standard (90%+ adoption)
+- [x] Key Git concepts: repository, commit, branch, merge, push, pull
+- [x] When to choose Git vs other version control systems
+- [x] The workflows for centralized vs distributed version control
+- [x] Git's competitive advantages over SVN, Mercurial, and Perforce
+
+<br>
+
+### 🎯 Skills Acquired:
+
+<br>
+
+| Skill | Level |
+|:------|:------|
+| **Version Control Concepts** | ✅ Beginner |
+| **Git Fundamentals** | ✅ Beginner |
+| **VCS Decision Making** | ✅ Beginner |
+| **Industry Awareness** | ✅ Beginner |
+
+<br>
+
+---
+
+<br>
+
+## 📝 Key Insights Summary
+
+<br>
+
+### 1. Version Control is Non-Negotiable
+
+Modern software development without version control is like driving without insurance—risky and unprofessional.
+
+<br>
+
+### 2. Distributed > Centralized
+
+Git's distributed model provides resilience, speed, and flexibility that centralized systems can't match.
+
+<br>
+
+### 3. Git is the Standard
+
+With 90%+ market share, learning Git is essential for any developer's career.
+
+<br>
+
+### 4. Branching Changes Everything
+
+Git's lightweight branching enables workflows that were impractical with older systems.
+
+<br>
+
+### 5. Community Matters
+
+GitHub, GitLab, and Bitbucket have built massive ecosystems around Git, making it even more valuable.
+
+<br>
+
+---
+
+<br>
+
+## 🚀 What's Next?
+
+<br>
+
+<div align="center">
+
+### 🎉 Congratulations on Completing Day 1! 🎉
+
+<br>
+
+You've built a solid foundation in version control concepts.
+
+<br>
+
+**Tomorrow's Focus:**
+
+- Installing Git on your system
+- Configuring Git (user name, email, preferences)
+- Learning essential commands: `init`, `add`, `commit`, `status`, `log`
+- Creating your first Git repository
+- Understanding the Git workflow
+
+<br>
+
+</div>
+
+---
+
+<br>
+
+## 🔖 Quick Command Preview (Coming Day 2)
+
+<br>
+
+```bash
+# Initialize a new repository
+git init
+
+# Check status of files
+git status
+
+# Stage files for commit
+git add filename.txt
+
+# Commit changes
+git commit -m "Your commit message"
+
+# View commit history
+git log
+```
+
+<br>
+
+---
+
+<br>
+
+## 📚 Additional Resources
+
+<br>
+
+### Official Documentation
+
+- [Git Official Documentation](https://git-scm.com/doc)
+- [GitHub Guides](https://guides.github.com/)
+- [Atlassian Git Tutorials](https://www.atlassian.com/git/tutorials)
+
+<br>
+
+### Interactive Learning
+
+- [Learn Git Branching](https://learngitbranching.js.org/)
+- [Git Immersion](https://gitimmersion.com/)
+- [GitHub Learning Lab](https://lab.github.com/)
+
+<br>
+
+### Books
+
+- Pro Git (Free online)
+- Version Control with Git
+
+<br>
+
+---
+
+<br>
+
+<div align="center">
+
+### 💪 Ready for Day 2?
+
+<br>
+
+**Next Up:** Git Installation, Setup & Basic Commands
+
+<br>
+
+[![Continue to Day 2](https://img.shields.io/badge/Continue-Day_2-blue?style=for-the-badge)](link-to-day-2)
+
+<br>
+
+---
+
+<br>
+
+**Made with ❤️ for aspiring Git masters**
+
+<br>
+
+*Last Updated: December 2024*
+
+</div>
